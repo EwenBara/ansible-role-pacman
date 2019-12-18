@@ -1,0 +1,25 @@
+---
+
+- name: load default
+  include_vars:
+    file: default.yml
+    name: "default"
+
+- name: load OS family map
+  include_vars:
+    file: osfamilymap.yml
+    name: "osfamilymap"
+
+- name: load distribution map
+  include_vars:
+    file: distributionmap.yml
+    name: "distributionmap"
+
+- name: compute configuration
+  set_fact:
+    pacman: "{{ default.pacman | combine(
+      osfamilymap[ansible_os_family].pacman is defined | ternary(osfamilymap[ansible_os_family].pacman, {}),
+      distributionmap[ansible_distribution].pacman is defined | ternary(distributionmap[ansible_distribution].pacman, {}),
+      pacman | default({}),
+      recursive=True
+      ) }}"

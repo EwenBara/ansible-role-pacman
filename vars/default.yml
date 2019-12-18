@@ -1,0 +1,13 @@
+---
+
+pacman:
+  package: pacman
+  config_file: /etc/pacman.conf
+  config:
+    options:
+      UseSyslog: False
+      Color: False
+      TotalDownload: False
+      CheckSpace: True
+      VerbosePkgLists: False
+      ILoveCandy: False

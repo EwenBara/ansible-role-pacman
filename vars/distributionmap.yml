@@ -1,0 +1,47 @@
+---
+
+Archlinux:
+  pacman:
+    config:
+      repositories:
+        101:
+          enable: False
+          name: 'testing'
+          include: '/etc/pacman.d/mirrorlist'
+        102:
+          enable: True
+          name: 'core'
+          include: '/etc/pacman.d/mirrorlist'
+        103:
+          enable: True
+          name: 'extra'
+          include: '/etc/pacman.d/mirrorlist'
+        104:
+          enable: False
+          name: 'community-testing'
+          include: '/etc/pacman.d/mirrorlist'
+        105:
+          enable: True
+          name: 'community'
+          include: '/etc/pacman.d/mirrorlist'
+        106:
+          enable: False
+          comment: |
+            # If you want to run 32 bit applications on your x86_64 system,
+            # enable the multilib repositories as required here.
+          name: 'multilib-testing'
+          include: '/etc/pacman.d/mirrorlist'
+        107:
+          enable: False
+          name: 'multilib'
+          include: '/etc/pacman.d/mirrorlist'
+        108:
+          enable: False
+          comment: |
+            # An example of a custom package repository.  See the pacman manpage for
+            # tips on creating your own repositories.
+          name: 'custom'
+          siglevel:
+            - Optional
+            - TrustAll
+          server: 'file:///home/custompkgs'
