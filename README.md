@@ -1,5 +1,5 @@
-Role Name
-=========
+ansible-role-pacman [![Build Status](https://travis-ci.com/EwenBara/ansible-role-pacman.svg?branch=master)](https://travis-ci.com/EwenBara/ansible-role-pacman)
+===============================================================================================================================================================
 
 A brief description of the role goes here.
 
@@ -34,12 +34,12 @@ passed in as parameters) is always nice for users too:
 
     - hosts: servers
       roles:
-         - { role: pacman, x: 42 }
+         - { role: pacman }
 
 License
 -------
 
-BSD
+GPLv3
 
 Author Information
 ------------------
