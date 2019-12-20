@@ -8,8 +8,9 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 def test_hosts_file(host):
-    f = host.file('/etc/hosts')
+    f = host.file('/etc/pacman.conf')
 
     assert f.exists
     assert f.user == 'root'
     assert f.group == 'root'
+    assert f.mode == 0o644
