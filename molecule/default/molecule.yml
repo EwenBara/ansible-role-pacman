@@ -6,8 +6,10 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: instance
+  - name: Archlinux
     image: archlinux:latest
+  - name: Manjaro
+    image: manjarolinux/base:latest
 provisioner:
   name: ansible
   lint:
