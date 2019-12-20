@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: pacman
   author: Ewen BARA
   description: Role to manage pacman configuration
   # company: your company (optional)
