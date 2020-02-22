@@ -3,18 +3,14 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
 platforms:
   - name: Archlinux
     image: archlinux:latest
+    pre_build_image: true
   - name: Manjaro
     image: manjarolinux/base:latest
+    pre_build_image: true
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 verifier:
-  name: testinfra
-  lint:
-    name: flake8
+  name: ansible
