@@ -6,10 +6,10 @@ driver:
 platforms:
   - name: Archlinux
     image: archlinux:latest
-    pre_build_image: true
+    dockerfile: Dockerfile.j2
   - name: Manjaro
     image: manjarolinux/base:latest
-    pre_build_image: true
+    dockerfile: Dockerfile.j2
 provisioner:
   name: ansible
 verifier:
