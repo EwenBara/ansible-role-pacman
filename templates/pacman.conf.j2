@@ -20,7 +20,6 @@ HoldPkg     = pacman glibc
 #XferCommand = /usr/bin/curl -L -C - -f -o %o %u
 #XferCommand = /usr/bin/wget --passive-ftp -c -O %o %u
 #CleanMethod = KeepInstalled
-#UseDelta    = 0.7
 Architecture = auto
 
 # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
@@ -72,8 +71,8 @@ LocalFileSigLevel = Optional
 # The testing repositories are disabled by default. To enable, uncomment the
 # repo name header and Include lines. You can add preferred servers immediately
 # after the header, and they will be used before the default mirrors.
-
 {% for key, repository in pacman.config.repositories.items() %}
+
     {% if repository.comment is defined %}{{ repository.comment }}{% endif %}
     {% if not repository.enable -%}#{% endif %}[{{ repository.name }}]
     {% if repository.siglevel is defined %}
@@ -85,5 +84,4 @@ LocalFileSigLevel = Optional
     {% if repository.include  is defined %}
         {% if not repository.enable %}#{% endif %}Include = {{ repository.include }}
     {% endif %}
-
 {% endfor %}
