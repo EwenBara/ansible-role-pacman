@@ -1,19 +1,16 @@
 ---
 
-- name: load default
+- name: load variables
   include_vars:
-    file: default.yml
-    name: "default"
-
-- name: load OS family map
-  include_vars:
-    file: osfamilymap.yml
-    name: "osfamilymap"
-
-- name: load distribution map
-  include_vars:
-    file: distributionmap.yml
-    name: "distributionmap"
+    file: "{{ map }}.yml"
+    name: "{{ map }}"
+  loop:
+    - default
+    - osfamilymap
+    - distributionmap
+    - fingerprintmap
+  loop_control:
+    loop_var: map
 
 - name: compute configuration
   set_fact:
