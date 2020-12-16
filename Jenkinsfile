@@ -32,7 +32,7 @@ node {
 					}
 					try {
 						stage('Create') {
-							sh(script: 'tox -e ' + item + ' -- syntax')
+							sh(script: 'tox -e ' + item + ' -- create')
 						}
 					}
 					catch(e) {
