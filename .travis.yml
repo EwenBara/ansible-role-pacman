@@ -7,14 +7,14 @@ python:
   - "3.6"
   - "3.7"
   - "3.8"
+  - "3.9"
 env:
-  - TOXENV=py-ansible-27
   - TOXENV=py-ansible-28
   - TOXENV=py-ansible-29
+  - TOXENV=py-ansible-210
   - TOXENV=py-ansible-devel
 jobs:
   allow_failures:
-    - env: TOXENV=py-ansible-27
     - env: TOXENV=py-ansible-devel
 services:
   - docker
@@ -24,4 +24,4 @@ install:
   - pip install tox docker
   # - pip install required driver (e.g. docker, python-vagrant, shade, boto, apache-libcloud)
 script:
-  - tox
+  - tox test

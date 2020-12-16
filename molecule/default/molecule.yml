@@ -2,14 +2,16 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 platforms:
   - name: Archlinux
-    image: archlinux:latest
+    image: docker.io/archlinux:latest
     dockerfile: Dockerfile.j2
+    pre_build_image: true
   - name: Manjaro
-    image: manjarolinux/base:latest
+    image: docker.io/manjarolinux/base:latest
     dockerfile: Dockerfile.j2
+    pre_build_image: true
 provisioner:
   name: ansible
 verifier:
