@@ -76,12 +76,16 @@ LocalFileSigLevel = Optional
     {% if repository.comment is defined %}{{ repository.comment }}{% endif %}
     {% if not repository.enable -%}#{% endif %}[{{ repository.name }}]
     {% if repository.siglevel is defined %}
-        {% if not repository.enable %}#{% endif %}SigLevel = {{ repository.siglevel | join(' ') }}
+        {% if repository.siglevel | type_debug == "list" %}
+            {% if not repository.enable %}#{% endif %}SigLevel = {{ repository.siglevel | join(' ') }}
+        {% else %}
+            {% if not repository.enable %}#{% endif %}SigLevel = {{ repository.siglevel }}
+        {% endif %}
     {% endif %}
     {% if repository.server is defined %}
         {% if not repository.enable %}#{% endif %}Server = {{ repository.server }}
     {% endif %}
-    {% if repository.include  is defined %}
+    {% if repository.include is defined %}
         {% if not repository.enable %}#{% endif %}Include = {{ repository.include }}
     {% endif %}
 {% endfor %}
