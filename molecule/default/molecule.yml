@@ -4,14 +4,12 @@ dependency:
 driver:
   name: podman
 platforms:
-  - name: Archlinux
+  - name: archlinux-${TOX_ENVNAME}
     image: docker.io/archlinux:latest
     dockerfile: Dockerfile.j2
-    pre_build_image: true
-  - name: Manjaro
+  - name: manjaro-${TOX_ENVNAME}
     image: docker.io/manjarolinux/base:latest
     dockerfile: Dockerfile.j2
-    pre_build_image: true
 provisioner:
   name: ansible
 verifier:
