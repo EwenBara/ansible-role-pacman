@@ -32,9 +32,10 @@ Architecture = auto
 # Misc options
 {% if not pacman.config.options.UseSyslog       %}#{% endif %}UseSyslog
 {% if not pacman.config.options.Color           %}#{% endif %}Color
-{% if not pacman.config.options.TotalDownload   %}#{% endif %}TotalDownload
+{% if not pacman.config.options.NoProgresssBar  %}#{% endif %}NoProgresssBar
 {% if not pacman.config.options.CheckSpace      %}#{% endif %}CheckSpace
 {% if not pacman.config.options.VerbosePkgLists %}#{% endif %}VerbosePkgLists
+#ParallelDownloads = 5
 {% if     pacman.config.options.ILoveCandy      %}
 ILoveCandy
 {% endif %}

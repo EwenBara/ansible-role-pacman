@@ -7,7 +7,7 @@ pacman:
     options:
       UseSyslog: False
       Color: False
-      TotalDownload: False
+      NoProgresssBar: False
       CheckSpace: True
       VerbosePkgLists: False
       ILoveCandy: False
